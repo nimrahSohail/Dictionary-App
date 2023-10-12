@@ -8,14 +8,14 @@ import {
 } from "@material-ui/core";
 import categories from "../../data/category";
 
-function Header({ setcategory, category, word, setword }) {
+function Header({ setcategory, category, word, setword , lightmode}) {
   const darkTheme = createTheme({
     palette: {
       // primary works when we click on the textfield
       primary: {
-        main: "#fff",
+        main:lightmode? "#000000": "#fff",
       },
-      type: "dark",
+      type:lightmode? "light": "dark",
     },
   });
 
@@ -26,7 +26,7 @@ function Header({ setcategory, category, word, setword }) {
 
   return (
     <div className="header">
-      <span className="title">{word ? word : "Word Hunt"}</span>
+      <span className="title">{word ? word : "Dictionary"}</span>
 
       <div className="inputs">
         <ThemeProvider theme={darkTheme}>
